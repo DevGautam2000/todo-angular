@@ -1,0 +1,21 @@
+<!--
+          AUTHOR : GAUTAM CHANDRA SAHA
+          DATE & TIME: Sun, October 24,2021 AT 04:15 
+          DESCRIPTION:
+
+-->
+
+<div class="para-wrapper">
+  <p *ngFor="let item of selectedTodos; let i = index">
+    {{ item }}<span (click)="splice(item, i)">x</span>
+  </p>
+</div>
+
+<div
+  class="wrapper ripple"
+  *ngFor="let item of todoList; let i = index"
+  (click)="check(i, item)"
+>
+  {{ item }}
+  <input type="checkbox" [class]="'input' + i" (click)="check(i, item)" />
+</div>

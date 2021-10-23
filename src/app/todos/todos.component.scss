@@ -1,0 +1,83 @@
+/*
+          AUTHOR : GAUTAM CHANDRA SAHA
+          DATE & TIME: Sun, October 24,2021 AT 04:15 
+          DESCRIPTION:
+
+*/
+
+$shadow-span: 0 0 2px 1px gray;
+$c-primary: rgba(73, 0, 245, 0.6);
+$c-primary-alpha: rgba(73, 0, 245, 0.3);
+$text-primary: #ffffff;
+$c-dwarf: gray;
+$font-size: 20px;
+$shadow: 1px 1px 10px 2px #eee;
+
+p {
+  padding: 10px 15px;
+  background: $c-primary;
+  color: white;
+  font-weight: bold;
+  margin: 0 10px;
+  font-size: 13px;
+  border-radius: 20px;
+  position: relative;
+  min-width: 7vw;
+  width: fit-content;
+  text-align: center;
+
+  span {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: white;
+    border-radius: 50%;
+    top: -5px;
+    left: -5px;
+    cursor: pointer;
+    color: black;
+    display: grid;
+    place-content: center;
+    box-shadow: $shadow-span;
+  }
+}
+
+.wrapper {
+  min-width: 20vw;
+  width: fit-content;
+  padding: 5px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: $shadow;
+  margin-bottom: 10px;
+  height: 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  //   position: relative;
+
+  input {
+    cursor: pointer;
+    transform: scale(1.5);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.ripple {
+  // position: absolute;
+  background-position: center;
+  transition: background 1s ease-out;
+  &:hover {
+    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%)
+      center/15000%;
+  }
+
+  &:active {
+    background-color: $c-primary-alpha;
+    background-size: 100%;
+    transition: background 0s;
+  }
+}

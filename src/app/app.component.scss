@@ -1,0 +1,70 @@
+/*
+          AUTHOR : GAUTAM CHANDRA SAHA
+          DATE & TIME: Sun, October 24,2021 AT 04:16 
+          DESCRIPTION:
+
+*/
+
+@import "reset";
+
+$nav-height: 6vh;
+$c-primary: #4900f5;
+$text-primary: #ffffff;
+$c-dwarf: gray;
+$font-size: 20px;
+$shadow: 1px 1px 10px 5px gray;
+
+nav {
+  height: $nav-height;
+  background: $c-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow;
+
+  ul {
+    display: flex;
+    flex: 0.8;
+    align-items: center;
+    justify-content: space-between;
+    li {
+      color: $text-primary;
+      display: block;
+
+      span {
+        font-size: $font-size - 5;
+        margin-left: 20px;
+        color: $c-dwarf;
+      }
+    }
+  }
+
+  .appname {
+    font-size: $font-size + 3;
+  }
+}
+
+.block {
+  height: calc(100vh - #{$nav-height});
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  app-todos {
+    width: 70%;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    .para-wrapper {
+      margin-bottom: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+    }
+  }
+}
