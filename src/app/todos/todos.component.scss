@@ -6,20 +6,21 @@
 */
 
 $shadow-span: 0 0 2px 1px gray;
-$c-primary: rgba(73, 0, 245, 0.6);
-$c-primary-alpha: rgba(73, 0, 245, 0.3);
+$c-primary: #4900f5;
+$c-primary-alpha: #4900f54d;
 $text-primary: #ffffff;
 $c-dwarf: gray;
 $font-size: 20px;
+$c-height: 35px;
 $shadow: 1px 1px 10px 2px #eee;
 
 p {
   padding: 10px 15px;
-  background: $c-primary;
+  background: $c-primary-alpha;
   color: white;
   font-weight: bold;
   margin: 0 10px;
-  font-size: 13px;
+  font-size: $font-size - 7;
   border-radius: 20px;
   position: relative;
   min-width: 7vw;
@@ -64,6 +65,55 @@ p {
   &:active {
     transform: scale(0.98);
   }
+
+  @media (max-width: 750px) {
+    width: 80vw;
+  }
+}
+#user-input-wrapper {
+  &:active {
+    transform: none;
+  }
+
+  button {
+    padding: 5px 8px;
+    border: none;
+    flex: 0.2;
+    height: $c-height;
+    background: $c-primary;
+    color: $text-primary;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+  }
+}
+
+#user-input {
+  cursor: pointer;
+  transform: scale(1);
+  font-size: $font-size - 5;
+  border: 0;
+  padding: 5px 8px;
+  border-radius: 6px;
+  height: $c-height;
+  flex: 0.7;
+
+  &::selection {
+    background: $c-primary-alpha;
+    color: $text-primary;
+  }
+
+  &:focus {
+    outline: 1px solid $c-primary;
+  }
 }
 
 .ripple {
@@ -80,4 +130,34 @@ p {
     background-size: 100%;
     transition: background 0s;
   }
+}
+
+.snackbar {
+  position: absolute;
+  height: 20vh;
+  width: 100%;
+  background: rgb(59, 184, 50);
+  bottom: 0;
+  color: white;
+  font-size: $font-size;
+  font-weight: bold;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  box-shadow: 0 3px 10px 2px gray;
+  transform: translateY(150%);
+  transition: all 0.8s ease-in-out;
+}
+
+.snackbar.active {
+  transform: translateY(0);
+}
+.snackbar.warn {
+  transform: translateY(0);
+  background-color: tomato;
 }

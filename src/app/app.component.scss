@@ -42,6 +42,18 @@ nav {
   .appname {
     font-size: $font-size + 3;
   }
+
+  @media (max-width: 750px) {
+    height: calc(#{$nav-height} + 2vh);
+
+    ul > li,
+    ul > li > span {
+      font-size: 10px;
+    }
+    .appname {
+      font-size: 14px;
+    }
+  }
 }
 
 .block {
@@ -53,7 +65,8 @@ nav {
   flex-direction: column;
 
   app-todos {
-    width: 70%;
+    min-width: 70%;
+    width: fit-content;
     padding: 10px 15px;
     display: flex;
     align-items: center;
